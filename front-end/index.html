@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="DuncanApp">
+    
+    <head>
+        <title>All Things Duncan - University of Notre Dame</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        
+        <!-- Linking fontawesome -->
+	   <script src="https://use.fontawesome.com/680a65bdf2.js"></script>
+	
+	   <!--Linking JQuery -->
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        
+        <!-- Loading angularjs -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.min.js"></script>
+        
+         <!-- Angular Material Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  
+        
+        <!-- Linking main app.js -->
+        <script src="ngapp.js"></script>
+    </head>
+    
+    <body>
+        
+    <style>
+        
+        body {
+            
+             background-image: url("duncan.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;
+            background-color: rgba(0,0,0,0.2)
+             
+        }
+       
+        
+    </style>
+        <header>
+			<nav class="navbar navbar-default"  style="background-color: navy;">
+			<div class="container">
+				<div class="navbar-header" style="padding: 0px 5px;">
+                    <a class="navbar-brand" href="#/" style="color: white; font-size: 1.4em;"><span><img src = "notre_dame.png" style="width: 9%; vertical-align: middle; padding: 0px 10px; display: inline-block;"></span>Search All Things Duncan</a>
+                    
+				</div>
+			</div>
+			</nav>
+		</header>
+        
+        <div class="container">
+            <div ng-view>
+                
+            </div>
+        </div>
+    </body>
