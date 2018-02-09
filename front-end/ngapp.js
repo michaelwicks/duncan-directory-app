@@ -74,8 +74,10 @@ DuncanApp.controller('resultsController', ['$scope', 'duncanService', function($
 //    $scope.results =  function () {
 //        duncanService.search($scope.searchinput);
 //    };
-    duncanService.search($scope.searchinput).then(function(results){
-        $scope.results = results;
+
+    duncanService.search($scope.searchinput).then(function(response){
+        $scope.results = {};
+        $scope.results = response;
     });
     
     $scope.$watch('searchinput', function() {
