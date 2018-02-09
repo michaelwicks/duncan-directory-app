@@ -14,6 +14,10 @@ DuncanApp.config(function ($routeProvider) {
         templateUrl: 'results.html',
         controller: 'resultsController'
     })
+    
+    .when ('/images.html', {
+        
+    })
 });
 
 
