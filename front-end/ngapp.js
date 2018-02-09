@@ -25,7 +25,7 @@ DuncanApp.service('duncanService', ['$http', '$q', function($http, $q) {
             method: 'GET',
             url: 'http://localhost:3000/search?keyword=' + searchInput
          }).then(function successCallback(response) {
-//                console.log(response.data);
+                console.log(response.data);
                 return (response.data);
             }, function errorCallback(response) {
 
@@ -61,7 +61,6 @@ DuncanApp.controller('resultsController', ['$scope', 'duncanService', function($
     duncanService.search($scope.searchinput).then(function(results){
         $scope.results = results;
     });
-    console.log($scope.results); 
     
     $scope.$watch('searchinput', function() {
         
