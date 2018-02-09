@@ -1,0 +1,127 @@
+[{"keyword":"gym",
+  "room_number": "300",
+  "floor_number": "3",
+  "hours_of_operation":{
+    "start":"9:00",
+    "end":"12:00"}
+  },
+
+{"keyword": "basketball",
+"room_number": "300",
+"floor_number": "3",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "study",
+"room_number": "400",
+"floor_number": "4",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "sleep",
+"room_number": "500",
+"floor_number": "5",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "food",
+"room_number": "100",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "coffee",
+"room_number": "101",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "ice cream",
+"room_number": "102",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "bathroom",
+"room_number": "103",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "restroom",
+"room_number": "103",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "toilets",
+"room_number": "103",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "elevators",
+"room_number": "104",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "stairs",
+"room_number": "105",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "exits",
+"room_number": "106",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "fitness",
+"room_number": "300",
+"floor_number": "3",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "lounge",
+"room_number": "106",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+},
+
+{"keyword": "tv",
+"room_number": "107",
+"floor_number": "1",
+"hours_of_operation":{
+  "start":"9:00",
+  "end":"12:00"}
+}]
