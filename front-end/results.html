@@ -5,10 +5,9 @@
 <h1>Search Results for "{{ searchinput }}"</h1>
     <div class="row">
         <div class="panel" ng-repeat="result in results">
-            <ul >
-                <li>
-                    {{ result }}
-                </li>
+            <ul class="list-group">
+                <li class="list-group-item"> Floor number: {{ result.floor_number }}</li>
+                <li class="list-group-item"> Matched Keyword: {{ result.keyword }}</li>
             </ul>
         </div>
     </div>
