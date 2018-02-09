@@ -1,17 +1,17 @@
 [
-  {"floor": "1",
-  "links": "https://drive.google.com/file/d/1lJWyHqz1SisQMJlued9UfghZJfRWjGNy/view?usp=sharing"
-  },
+    {"floor": "1",
+      "link": "https://drive.google.com/file/d/1lJWyHqz1SisQMJlued9UfghZJfRWjGNy/view?usp=sharing"
+    },
 
-{"floor": "2",
- "links": "https://drive.google.com/file/d/11XHopqT7FccHFbgE_rEZUXTIAA1QhTgD/view?usp=sharing"
-  },
+    {"floor": "2",
+     "link": "https://drive.google.com/file/d/11XHopqT7FccHFbgE_rEZUXTIAA1QhTgD/view?usp=sharing"
+    },
 
-{"floor": "3",
- "links": "https://drive.google.com/file/d/1id9p3tsCan1yGyPnQD9Sshe3WBreUtcp/view?usp=sharing"
-  },
+    {"floor": "3",
+     "link": "https://drive.google.com/file/d/1id9p3tsCan1yGyPnQD9Sshe3WBreUtcp/view?usp=sharing"
+    },
 
-{"floor": "5",
- "links": "https://drive.google.com/file/d/1wHqiPOhxhY2ml7PhCttmBKJDL_DfySGt/view?usp=sharing"
-  }
+    {"floor": "5",
+     "link": "https://drive.google.com/file/d/1wHqiPOhxhY2ml7PhCttmBKJDL_DfySGt/view?usp=sharing"
+    }
 ]
