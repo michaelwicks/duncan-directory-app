@@ -1,127 +1,127 @@
 [{"keyword":"gym",
-  "room number": "300",
-  "floor number": "3",
-  "hours of operation":{
+  "room_number": "300",
+  "floor_number": "3",
+  "hours_of_operation":{
     "start":"9:00",
     "end":"12:00"}
   },
 
 {"keyword": "basketball",
-"room number": "300",
-"floor number": "3",
-"hours of operation":{
+"room_number": "300",
+"floor_number": "3",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "study",
-"room number": "400",
-"floor number": "4",
-"hours of operation":{
+"room_number": "400",
+"floor_number": "4",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "sleep",
-"room number": "500",
-"floor number": "5",
-"hours of operation":{
+"room_number": "500",
+"floor_number": "5",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "food",
-"room number": "100",
-"floor number": "1",
-"hours of operation":{
+"room_number": "100",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "coffee",
-"room number": "101",
-"floor number": "1",
-"hours of operation":{
+"room_number": "101",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "ice cream",
-"room number": "102",
-"floor number": "1",
-"hours of operation":{
+"room_number": "102",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "bathroom",
-"room number": "103",
-"floor number": "1",
-"hours of operation":{
+"room_number": "103",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "restroom",
-"room number": "103",
-"floor number": "1",
-"hours of operation":{
+"room_number": "103",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "toilets",
-"room number": "103",
-"floor number": "1",
-"hours of operation":{
+"room_number": "103",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "elevators",
-"room number": "104",
-"floor number": "1",
-"hours of operation":{
+"room_number": "104",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "stairs",
-"room number": "105",
-"floor number": "1",
-"hours of operation":{
+"room_number": "105",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "exits",
-"room number": "106",
-"floor number": "1",
-"hours of operation":{
+"room_number": "106",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "fitness",
-"room number": "300",
-"floor number": "3",
-"hours of operation":{
+"room_number": "300",
+"floor_number": "3",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "lounge",
-"room number": "106",
-"floor number": "1",
-"hours of operation":{
+"room_number": "106",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 },
 
 {"keyword": "tv",
-"room number": "107",
-"floor number": "1",
-"hours of operation":{
+"room_number": "107",
+"floor_number": "1",
+"hours_of_operation":{
   "start":"9:00",
   "end":"12:00"}
 }]
