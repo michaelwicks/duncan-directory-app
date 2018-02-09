@@ -40,6 +40,22 @@ DuncanApp.service('duncanService', ['$http', '$q', function($http, $q) {
     
 }]);
 
+DuncanApp.service('imageService', ['$http', '$q', function($http, $q) {
+    
+    this.image = function() {
+        
+         return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/search?keyword=' + searchInput
+         }).then(function successCallback(response) {
+                console.log(response.data);
+                return (response.data);
+            }, function errorCallback(response) {
+
+            });
+    }
+}])
+
 // CONTROLLERS
 DuncanApp.controller('mainController', ['$scope', 'duncanService', function($scope, duncanService){
     

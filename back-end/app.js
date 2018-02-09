@@ -10,5 +10,4 @@ var image = require('./image');
 app.use('/', search);
 app.use('/', image);
 
-
 app.listen(port);
