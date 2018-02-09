@@ -48,7 +48,6 @@ DuncanApp.service('imageService', ['$http', '$q', function($http, $q) {
             method: 'GET',
             url: 'http://localhost:3000/search?keyword=' + searchInput
          }).then(function successCallback(response) {
-                console.log(response.data);
                 return (response.data);
             }, function errorCallback(response) {
 
@@ -72,7 +71,7 @@ DuncanApp.controller('mainController', ['$scope', 'duncanService', function($sco
     });
 }]);
 
-DuncanApp.controller('resultsController', ['$scope', 'duncanService', function($scope, duncanService){
+DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageService', function($scope, duncanService){
     
     $scope.searchinput = duncanService.searchinput;
 //    console.log($scope.searchinput);
@@ -84,6 +83,8 @@ DuncanApp.controller('resultsController', ['$scope', 'duncanService', function($
         $scope.results = {};
         $scope.results = response;
     });
+    
+    imageService
     
     $scope.$watch('searchinput', function() {
         
