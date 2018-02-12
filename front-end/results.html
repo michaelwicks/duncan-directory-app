@@ -8,8 +8,9 @@
             <ul class="list-group">
                 <li class="list-group-item"> Matched Keyword: {{ results.keyword }}</li>
                 <li class="list-group-item"> Floor number: {{ results.floor_number }}</li>
-                <li class="list-group-item"> Room number: {{ results.room_number }} </li>
-                <li class="list-group-item"> Hours of operation: {{ results.hours_of_operation.start }} - {{ results.hours_of_operation.end }} </li>
+                <li class="list-group-item"> Room number: {{ results.room_number }}</li>
+                <li class="list-group-item"> Hours of operation: {{ results.hours_of_operation.start }} - {{ results.hours_of_operation.end }}</li>
+                <img ng-src="{{ image }}"/>
             </ul>
         </div>
     </div>

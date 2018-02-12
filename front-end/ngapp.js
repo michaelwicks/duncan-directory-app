@@ -42,11 +42,11 @@ DuncanApp.service('duncanService', ['$http', '$q', function($http, $q) {
 
 DuncanApp.service('imageService', ['$http', '$q', function($http, $q) {
     
-    this.image = function() {
+    this.image = function(imageInput) {
         
          return $http({
             method: 'GET',
-            url: 'http://localhost:3000/search?keyword=' + searchInput
+            url: 'http://localhost:3000/image?floor_num=' + imageInput
          }).then(function successCallback(response) {
                 console.log(response.data);
                 return (response.data);
@@ -72,18 +72,36 @@ DuncanApp.controller('mainController', ['$scope', 'duncanService', function($sco
     });
 }]);
 
-DuncanApp.controller('resultsController', ['$scope', 'duncanService', function($scope, duncanService){
+DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageService', function($scope, duncanService, imageService){
     
     $scope.searchinput = duncanService.searchinput;
 //    console.log($scope.searchinput);
 //    $scope.results =  function () {
 //        duncanService.search($scope.searchinput);
 //    };
+    
+    $scope.results = {};
+    $scope.image = "";
 
     duncanService.search($scope.searchinput).then(function(response){
-        $scope.results = {};
         $scope.results = response;
+        
+        return(response.floor_number);
+        
+    }).then(function(response) {
+        
+        return imageService.image(response);
+        
+    }).then(function(response) {
+       
+        $scope.image = response;  //adding image link 
+        
     });
+                                           
+//    imageService.image($scope.getImage).then(function(response){
+//        $scope.image = {};
+//        $scope.image = response;
+//    });
     
     $scope.$watch('searchinput', function() {
         
