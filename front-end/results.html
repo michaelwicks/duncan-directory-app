@@ -1,10 +1,11 @@
 
-<div style="background-color: white; padding: 10px 15px; color: navy; width: 100%">
-
-<h3><a href="#/">Back to Search</a></h3>
-<h1>Search Results for "{{ searchinput }}"</h1>
-    <div class="row">
-        <div class="panel">
+<div>
+    
+    <div class="row" style="color: navy">
+        <div class="panel panel-info" style="float: left; width: 58%; padding: 0px;">
+            
+            <div class="panel-heading" style="font-size: 2em">Search Results for "{{ searchinput }}"</div>
+            
             <ul class="list-group">
                 <li class="list-group-item"> Matched Keyword: {{ results.keyword }}</li>
                 <li class="list-group-item"> Floor number: {{ results.floor_number }}</li>
@@ -13,6 +14,26 @@
                 <img ng-src="{{ image }}"/>
             </ul>
         </div>
+        
+         <div class="panel panel-default" style="float: right; width: 35%;">
+            
+            <div class="panel-heading" style="font-size: 1.5em; background-color: navy; color: white">Sign up for DuncanUPDATES!</div>
+            <div class="panel-body" style="font-size: 1.1em">Receive weekly emails on events you're interested in! Enter you name and email below to join.</div>
+           
+                <form style="padding: 10px">
+                    <div class="form-group">
+                        <label for="userName">Name</label>
+                        <input type="name" class="form-control" id="userName" placeholder="Max Wilson">
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email address</label>
+                        <input type="email" class="form-control" id="userEmail" placeholder="maxWilson@gmail.com">
+                    </div>
+  
+                    <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
+                </form>
+        </div>
+        
     </div>
 
 </div>
