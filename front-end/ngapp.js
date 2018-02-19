@@ -48,7 +48,6 @@ DuncanApp.service('imageService', ['$http', '$q', function($http, $q) {
             method: 'GET',
             url: 'http://localhost:3000/image?floor_num=' + imageInput
          }).then(function successCallback(response) {
-                console.log(response.data);
                 return (response.data);
             }, function errorCallback(response) {
 
@@ -71,6 +70,7 @@ DuncanApp.controller('mainController', ['$scope', 'duncanService', function($sco
         
     });
 }]);
+
 
 DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageService', function($scope, duncanService, imageService){
     
@@ -102,6 +102,8 @@ DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageServ
 //        $scope.image = {};
 //        $scope.image = response;
 //    });
+    
+    imageService
     
     $scope.$watch('searchinput', function() {
         
