@@ -1,4 +1,4 @@
-var DuncanApp = angular.module('DuncanApp', ['ngRoute', 'ngResource']);
+var DuncanApp = angular.module('DuncanApp', ['ngRoute', 'ngResource','ngParse']);
 
 DuncanApp.config(function ($routeProvider) {
     $routeProvider
@@ -12,7 +12,7 @@ DuncanApp.config(function ($routeProvider) {
     .when ('/results.html', {
         
         templateUrl: 'results.html',
-        controller: 'resultsController'
+        controller: 'parseResultsController'
     })
     
     .when ('/images.html', {
@@ -20,6 +20,39 @@ DuncanApp.config(function ($routeProvider) {
         controller: 'resultsController'
     })
 });
+       
+// Parse config
+DuncanApp.config(['ParseProvider', function ($ParseProvider){
+    var MY_PARSE_APP_ID = '9327d28c-7570-4e88-9aa1-cc6a5df15c68';
+    var MY_PARSE_JS_KEY = 'fzXgwX07mQvNIefKjBnTY5fvNJMJTv2s';
+    $ParseProvider.initialize(MY_PARSE_APP_ID, MY_PARSE_JS_KEY);
+    $ParseProvider.serverURL = 'https://api.parse.buddy.com/parse/';
+}]);
+
+
+// Parse query
+DuncanApp.controller('parseResultsController', ['$scope', 'Parse', function($scope, Parse, searchInput){
+    var Keyword = Parse.Object.extend("Keyword")
+    var query = new Parse.Query(Keyword)
+    query.get("O6uH8WFHt3", {
+        success: function(kw){
+            console.log(kw);
+        },
+    error: function(object, error){
+        console.log(error);
+    }
+    });
+//    new Parse.Query(searchInput)
+//        .include('hours')
+//        .find()
+//        .then(function(response){
+//        console.log(response)
+//        $scope.results = response;
+//    })
+//    .catch(function(err) {
+//        $scope.error = err;
+//    }); 
+}]);
 
 
 // SERVICES
