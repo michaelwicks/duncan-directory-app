@@ -33,7 +33,8 @@ DuncanApp.config(['ParseProvider', function ($ParseProvider){
 // Parse query
 DuncanApp.controller('parseResultsController', ['$scope', 'Parse', function($scope, Parse, searchInput){
     var Keyword = Parse.Object.extend("Keyword")
-    var query = new Parse.Query(Keyword)
+    
+    var query = new Parse.Query(Keyword) 
     query.get("O6uH8WFHt3", {
         success: function(kw){
             console.log(kw);
