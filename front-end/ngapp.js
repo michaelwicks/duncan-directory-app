@@ -33,16 +33,12 @@ DuncanApp.config(['ParseProvider', function ($ParseProvider){
 // Parse query
 DuncanApp.controller('parseResultsController', ['$scope', 'Parse', function($scope, Parse, searchInput){
     var Keyword = Parse.Object.extend("Keyword")
-    
-    var query = new Parse.Query(Keyword) 
-    query.get("O6uH8WFHt3", {
-        success: function(kw){
-            console.log(kw);
-        },
-    error: function(object, error){
-        console.log(error);
-    }
+    var query = new Parse.Query(Keyword)
+    query.equalTo("keyword", "basketball" );
+    query.find().then(function(results){
+        console.log(results);
     });
+    }]);
 //    new Parse.Query(searchInput)
 //        .include('hours')
 //        .find()
@@ -53,7 +49,6 @@ DuncanApp.controller('parseResultsController', ['$scope', 'Parse', function($sco
 //    .catch(function(err) {
 //        $scope.error = err;
 //    }); 
-}]);
 
 
 // SERVICES
@@ -92,15 +87,15 @@ DuncanApp.service('imageService', ['$http', '$q', function($http, $q) {
 // CONTROLLERS
 DuncanApp.controller('mainController', ['$scope', 'duncanService', function($scope, duncanService){
     
-    $scope.searchinput = duncanService.searchinput;
+    $scope.searchInput = duncanService.searchInput;
     $scope.search = function () {
-        duncanService.search($scope.searchinput);
+        duncanService.search($scope.searchInput);
     };
 
 
-    $scope.$watch('searchinput', function() {
+    $scope.$watch('searchInput', function() {
         
-        duncanService.searchinput = $scope.searchinput;
+        duncanService.searchInput = $scope.searchInput;
         
     });
 }]);
@@ -108,16 +103,16 @@ DuncanApp.controller('mainController', ['$scope', 'duncanService', function($sco
 
 DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageService', function($scope, duncanService, imageService){
     
-    $scope.searchinput = duncanService.searchinput;
-//    console.log($scope.searchinput);
+    $scope.searchInput = duncanService.searchInput;
+//    console.log($scope.searchInput);
 //    $scope.results =  function () {
-//        duncanService.search($scope.searchinput);
+//        duncanService.search($scope.searchInput);
 //    };
     
     $scope.results = {};
     $scope.image = "";
 
-    duncanService.search($scope.searchinput).then(function(response){
+    duncanService.search($scope.searchInput).then(function(response){
         $scope.results = response;
         
         return(response.floor_number);
@@ -139,9 +134,9 @@ DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageServ
     
     imageService
     
-    $scope.$watch('searchinput', function() {
+    $scope.$watch('searchInput', function() {
         
-        duncanService.searchinput = $scope.searchinput;
+        duncanService.searchInput = $scope.searchInput;
         
     });
 
