@@ -9,7 +9,7 @@ router.use(function(req, res, next) {
 });
 
 router.post('/testemail', function(req, res) {
-    email.send('joh4@nd.edu', 'bob', 'none');
+    //email.send('mshan@nd.edu', 'bob', 'none');
 });
 
 module.exports = router;
