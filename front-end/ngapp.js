@@ -1,6 +1,9 @@
-var DuncanApp = angular.module('DuncanApp', ['ngRoute', 'ngResource','ngParse', 'angularMoment']);
+// MODULE
+var DuncanApp = angular.module('DuncanApp', ['ngRoute', 'ngResource', 'ngParse', 'angularMoment']); 
 
+//ROUTES
 DuncanApp.config(function ($routeProvider) {
+    
     $routeProvider
     
     .when ('/', {
@@ -15,138 +18,90 @@ DuncanApp.config(function ($routeProvider) {
         controller: 'parseResultsController'
     })
     
-    .when ('/images.html', {
-        templateUrl: 'images.html',
-        controller: 'parseImageController'
+    .when ('/successful.html', {
+        
+        templateUrl: 'successful.html',
+        controller: 'parseResultsController'
     })
 });
        
-// Parse config
+// Linking Parse Database
 DuncanApp.config(['ParseProvider', function ($ParseProvider){
-    var MY_PARSE_APP_ID = '9327d28c-7570-4e88-9aa1-cc6a5df15c68';
-    var MY_PARSE_JS_KEY = 'fzXgwX07mQvNIefKjBnTY5fvNJMJTv2s';
+    var MY_PARSE_APP_ID = 'dMTmXzxnwbeMe9iyK4vivUqoCdQSq5XJGf3LGHOq';
+    var MY_PARSE_JS_KEY = 'kAMpM6libZXYPBNa6gl20X09BiqjURQhUrsKoSlX';
     $ParseProvider.initialize(MY_PARSE_APP_ID, MY_PARSE_JS_KEY);
-    $ParseProvider.serverURL = 'https://api.parse.buddy.com/parse/';
+    $ParseProvider.serverURL = 'https://parseapi.back4app.com/';
 }]);
 
+// RESULTS CONTROLLER 
 
-// Parse query
-DuncanApp.controller('parseResultsController', ['$scope', 'Parse', 'duncanService', function($scope, Parse, duncanService){
-    $scope.result = {}; 
+DuncanApp.controller('parseResultsController', ['$scope', 'Parse', 'duncanService', 'moment', '$filter', function($scope, Parse, duncanService, moment, $filter){
+    
+    // PARSE QUERY to get data
     var Keyword = Parse.Object.extend("Keyword")
-    var query = new Parse.Query(Keyword)
-    query.include("hours")
-    console.log(duncanService.searchInput);
-    query.equalTo("keyword", duncanService.searchInput );
+    var query = new Parse.Query(Keyword) // Targets "Keyword" class in Parse 
+    
+    // Including pointers 
+    query.include("hours") 
+    query.include("floorImage")
+    
+    // keyword has to be equal to inputted keyword by the user
+    query.equalTo("keyword", duncanService.searchInput);
+    
     query.first().then(function(result){
-        console.log(result);
-        Parse.defineAttributes(result, ['keyword', 'roomNumber', 'floorNumber', 'hours'])
-        Parse.defineAttributes(result.hours, ['startTime', 'endTime'])
-        $scope.result = result;
-//        return result;
+        
+        // Converting Parse objects to readable angular objects
+        Parse.defineAttributes(result, ['keyword', 'roomNumber', 'floorNumber', 'hours', 'floorImage']);
+        Parse.defineAttributes(result.hours, ['startTime', 'endTime']);
+        Parse.defineAttributes(result.floorImage, ['floorImage']);
+        
+        //Calls Moment - Time library 
+        $scope.startTime = moment(result.hours.startTime).add(5, 'hours').format('LTS'); // $scope - accessible on the view 
+        $scope.endTime = moment(result.hours.endTime).add(5, 'hours').format('LTS'); // $scope - accessible on the view
+        
+        $scope.result = result; // Makes results accessible on the view 
+        result.keyword = duncanService.searchInput;
+        
     });
-    }]);
-//    new Parse.Query(searchInput)
-//        .include('hours')
-//        .find()
-//        .then(function(response){
-//        console.log(response)
-//        $scope.results = response;
-//    })
-//    .catch(function(err) {
-//        $scope.error = err;
-//    }); 
+    
+// Function takes user input name and email and saves it to PARSE 
+    
+   $scope.userInput = 
+       
+       function userInput() {
+   
+    var userData = new Parse.Object('Email') // Targets "Email" class in Parse
+    Parse.defineAttributes(userData, ['name', 'email', 'keywordString']) 
+    userData.name = $filter('lowercase')($scope.userName); // Makes user inputted name lowercase before saving to Parse 
+    userData.email = $scope.userEmail; 
+    userData.keywordString = duncanService.searchInput; // User input into search box  == keyword stored in parse
+    
+    userData.save(null, {
+        
+        success: function(userData) { 
+        },
+        
+        error: function(userData, error) {
+        }
+        
+    }); 
+    }
+    
+}]);
 
-
-// SERVICES
-DuncanApp.service('duncanService', ['$http', '$q', function($http, $q) {
+// DUNCAN SERVICE 
+DuncanApp.service('duncanService', [ function() {
+    
     this.searchInput = '';
     
-//
-//    this.search = function(searchInput){
-//        return $http({
-//            method: 'GET',
-//            url: 'http://localhost:3000/search?keyword=' + searchInput
-//         }).then(function successCallback(response) {
-//                console.log(response.data);
-//                return (response.data);
-//            }, function errorCallback(response) {
-//
-//            });
-//    }
-//
-//    
 }]);
 
-DuncanApp.service('imageService', ['$http', '$q', function($http, $q) {
+// MAIN CONTROLLER 
+DuncanApp.controller('mainController', ['$scope', 'duncanService', '$filter', function($scope, duncanService, $filter){
     
-    this.image = function(imageInput) {
-        
-         return $http({
-            method: 'GET',
-            url: 'http://localhost:3000/image?floor_num=' + imageInput
-         }).then(function successCallback(response) {
-                return (response.data);
-            }, function errorCallback(response) {
-
-            });
-    }
-}])
-
-// CONTROLLERS
-DuncanApp.controller('mainController', ['$scope', 'duncanService', function($scope, duncanService){
-    
-//    $scope.search = function () {
-//        duncanService.search($scope.searchInput);
-//    };
-
-
-    $scope.$watch('searchInput', function() {
-        console.log($scope.searchInput);        
-        duncanService.searchInput = $scope.searchInput;
-        
+    // Makes SearchInput no longer case sensitive 
+    $scope.$watch('searchInput', function() {  
+        duncanService.searchInput = $filter('lowercase')($scope.searchInput);
     });
+
 }]);
-
-
-//DuncanApp.controller('resultsController', ['$scope', 'duncanService', 'imageService', function($scope, duncanService, imageService){
-//    
-//    $scope.searchInput = duncanService.searchInput;
-////    console.log($scope.searchInput);
-////    $scope.results =  function () {
-////        duncanService.search($scope.searchInput);
-////    };
-//    
-//    $scope.results = {};
-//    $scope.image = "";
-//
-//    duncanService.search($scope.searchInput).then(function(response){
-//        $scope.results = response;
-//        
-//        return(response.floor_number);
-//        
-//    }).then(function(response) {
-//        
-//        return imageService.image(response);
-//        
-//    }).then(function(response) {
-//       
-//        $scope.image = response;  //adding image link 
-//        
-//    });
-//                                           
-////    imageService.image($scope.getImage).then(function(response){
-////        $scope.image = {};
-////        $scope.image = response;
-////    });
-//    
-//    imageService
-//    
-//    $scope.$watch('searchInput', function() {
-//        
-//        duncanService.searchInput = $scope.searchInput;
-//        
-//    });
-//
-//}]);
-
