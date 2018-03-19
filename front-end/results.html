@@ -1,18 +1,19 @@
 
-<div>
     
     <div class="row" style="color: navy">
         <div class="panel panel-info" style="float: left; width: 58%; padding: 0px;">
             
-            <div class="panel-heading" style="font-size: 2em">Search Results for "{{ searchinput }}"</div>
+            <div class="panel-heading" style="font-size: 2em">Search Results for "{{ result.keyword }}"</div>
             
             <ul class="list-group">
-                <li class="list-group-item"> Matched Keyword: {{ result.keyword }}</li>
                 <li class="list-group-item"> Floor number: {{ result.floorNumber }}</li>
                 <li class="list-group-item"> Room number: {{ result.roomNumber }}</li>
-                <li class="list-group-item"> Hours of operation: {{ result.hours.startTime }} - {{ result.hours.endTime }}</li>
-                <img ng-src="{{ image }}"/>
+                <li class="list-group-item"> Hours of operation: {{ startTime }} - {{ endTime }}</li>
             </ul>
+            
+            <center><img ng-src="{{ result.floorImage.floorImage._url }}" style="width: 90%; padding: 10px;"></center>
+            <center><a href="index.html"><p style="color: navy;">Back to search</p></a></center>
+            
         </div>
         
          <div class="panel panel-default" style="float: right; width: 35%;">
@@ -23,18 +24,14 @@
                 <form style="padding: 10px">
                     <div class="form-group">
                         <label for="userName">Name</label>
-                        <input type="name" class="form-control" id="userName" placeholder="Max Wilson">
+                        <input type="name" class="form-control" id="userName" placeholder="Max Wilson" ng-model="userName">
                     </div>
                     <div class="form-group">
                         <label for="userEmail">Email address</label>
-                        <input type="email" class="form-control" id="userEmail" placeholder="maxWilson@gmail.com">
+                        <input type="email" class="form-control" id="userEmail" placeholder="maxWilson@gmail.com" ng-model="userEmail">
                     </div>
-  
-                    <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
+                    <a type="submit" class="btn btn-primary" style="margin-top: 15px;" href="#/successful.html" ng-click = "userInput()">Submit</a>
                 </form>
         </div>
         
     </div>
-
-</div>
-
