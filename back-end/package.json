@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "parse": "^1.11.0",
+    "sparkpost": "^2.1.2"
   }
 }
