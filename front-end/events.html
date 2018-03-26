@@ -1,1 +1,47 @@
-<h1>This is the event page</h1>
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default">
+
+       <div class="panel-heading" style="font-size: 1.5em; background-color: navy; color: white">Events</div>
+
+            <form style="padding: 10px">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Duncan Event" ng-model="title">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" placeholder="W210" ng-model="location">
+                </div>
+                <div class="form-group">
+                    <label for="title">Date</label>
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker1').datetimepicker();
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="keyword">Keyword</label>
+                    <input type="text" class="form-control" id="keyword" placeholder="gym" ng-model="keyword">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" rows="5" id="description"></textarea>
+                </div>
+                <a type="submit" class="btn btn-primary" style="margin-top: 15px;" href="#/successful.html" ng-click = "userInput()">Submit</a>
+
+            </form>
+    </div>
+</div>
