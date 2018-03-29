@@ -113,7 +113,7 @@ DuncanApp.controller('eventsController', ['$scope', 'Parse', '$filter', function
     eventData.location = $scope.location;
     eventData.eventStartTime = $scope.eventStartTime;
     eventData.eventEndTime = $scope.eventEndTime;
-    eventData.keyword = $scope.keyword;
+    eventData.keyword = $filter('lowercase')($scope.keyword);
     eventData.description = $scope.description;
     eventData.save(null, {
 
