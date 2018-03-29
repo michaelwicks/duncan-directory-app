@@ -24,6 +24,12 @@ DuncanApp.config(function ($routeProvider) {
         controller: 'successController'
     })
 
+    .when ('/eventSuccess.html', {
+
+        templateUrl: 'eventSuccess.html',
+        controller: 'successController'
+    })
+
     .when ('/events.html', {
 
         templateUrl: 'events.html',
