@@ -21,7 +21,7 @@ DuncanApp.config(function ($routeProvider) {
     .when ('/successful.html', {
 
         templateUrl: 'successful.html',
-        controller: 'parseResultsController'
+        controller: 'successController'
     })
 
     .when ('/events.html', {
@@ -97,16 +97,16 @@ DuncanApp.controller('parseResultsController', ['$scope', 'Parse', 'duncanServic
 
 // EVENTS CONTROLLER
 
-DuncanApp.controller('eventController', ['$scope', 'Parse', '$filter', function($scope, Parse, $filter) {
+DuncanApp.controller('eventsController', ['$scope', 'Parse', '$filter', function($scope, Parse, $filter) {
 
   // Function takes user input name and email and saves it to PARSE
   $scope.eventInput = function eventInput() {
     var eventData = new Parse.Object('Event');
-    Parse.defineAttributes(eventData, ['title', 'location', 'startTime', 'endTime', 'keyword', 'description']);
+    Parse.defineAttributes(eventData, ['title', 'location', 'eventStartTime', 'eventEndTime', 'keyword', 'description']);
     eventData.title = $scope.title;
     eventData.location = $scope.location;
-    eventData.startTime = $scope.startTime;
-    eventData.endTime = $scope.endTime;
+    eventData.eventStartTime = $scope.eventStartTime;
+    eventData.eventEndTime = $scope.eventEndTime;
     eventData.keyword = $scope.keyword;
     eventData.description = $scope.description;
     eventData.save(null, {
@@ -120,6 +120,9 @@ DuncanApp.controller('eventController', ['$scope', 'Parse', '$filter', function(
     });
   };
 }]);
+
+// SUCCESS CONTROLLER
+DuncanApp.controller('successController', [function() {}]);
 
 // DUNCAN SERVICE
 DuncanApp.service('duncanService', [ function() {
