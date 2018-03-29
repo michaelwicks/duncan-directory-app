@@ -97,8 +97,25 @@ DuncanApp.controller('parseResultsController', ['$scope', 'Parse', 'duncanServic
 
 // EVENTS CONTROLLER
 
-DuncanApp.controller('eventController', ['$scope', function($scope) {
-    //http://bootstrapdocs.com/v3.2.0/docs/css/
+DuncanApp.controller('eventController', ['$scope', 'Parse', 'duncanService', 'moment', '$filter', function($scope, Parse, duncanService, moment, $filter) {
+
+  // Function takes user input name and email and saves it to PARSE
+  $scope.userInput = function userInput() {
+    var userData = new Parse.Object('Email') // Targets "Email" class in Parse
+    Parse.defineAttributes(userData, ['name', 'email', 'keywordString'])
+    userData.name = $filter('lowercase')($scope.userName); // Makes user inputted name lowercase before saving to Parse
+    userData.email = $scope.userEmail;
+    userData.keywordString = duncanService.searchInput; // User input into search box  == keyword stored in parse
+    userData.save(null, {
+
+      success: function(userData) {
+      },
+
+      error: function(userData, error) {
+      }
+
+    });
+  }
 }]);
 
 // DUNCAN SERVICE
