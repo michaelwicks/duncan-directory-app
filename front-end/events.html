@@ -4,14 +4,14 @@
 
        <div class="panel-heading" style="font-size: 2.0em; padding-left: 1.2em; background-color: navy; color: white">Events</div>
 
-            <form style="padding: 35px; padding-top: 20px;">
+            <form name= "eventForm" style="padding: 35px; padding-top: 20px;">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" placeholder="eg. Duncan Event" ng-model="title">
+                    <input type="text" class="form-control" id="title" placeholder="eg. Duncan Event" ng-model="title" required/>
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <input type="text" class="form-control" id="location" placeholder="eg. W210" ng-model="location">
+                    <input type="text" class="form-control" id="location" placeholder="eg. W210" ng-model="location" required/>
                 </div>
                 <div class="form-group">
                   <div class="row">
@@ -22,7 +22,7 @@
                         <div class='col-sm-6'>
                             <div class="form-group">
                                 <div class='input-group date' id='datetimepicker1' ng-model="eventStartTime">
-                                    <input type='text' class="form-control" />
+                                    <input type='text' class="form-control" required/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -32,7 +32,7 @@
                         <div class='col-sm-6'>
                             <div class="form-group">
                                 <div class='input-group date' id='datetimepicker2' ng-model="eventEndTime">
-                                    <input type='text' class="form-control" />
+                                    <input type='text' class="form-control" required/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -50,13 +50,13 @@
 
                 <div class="form-group">
                     <label for="keyword">Keyword</label>
-                    <input type="text" class="form-control" id="keyword" placeholder="eg. gym" ng-model="keyword">
+                    <input type="text" class="form-control" id="keyword" placeholder="eg. gym" ng-model="keyword" required/>
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" rows="5" id="description" ng-model="description"></textarea>
+                    <textarea class="form-control" rows="5" id="description" ng-model="description" required></textarea>
                 </div>
-                <a type="submit" class="btn btn-primary" style="margin-top: 15px;" href="#/eventSuccess.html" ng-click = "eventInput()">Submit</a>
+                <a ng-disabled="eventForm.$invalid" type="submit" class="btn btn-primary" style="margin-top: 15px;" href="#/eventSuccess.html" ng-click = "eventInput()">Submit</a>
 
             </form>
     </div>
