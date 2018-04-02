@@ -12,7 +12,7 @@ router.use(function(req, res, next) {
 });
 
 router.post('/', jsonParser, function(req, res) {
-    email.multisend(req.body.email, req.body.userName, req.body.keyword, req.body.eventTitle, req.body.eventLocation, req.body.eventDescription);
+    email.multisend(req.body.email, req.body.eventTitle,  req.body.eventDescription, req.body.eventLocation);
     res.send();
 });
 
