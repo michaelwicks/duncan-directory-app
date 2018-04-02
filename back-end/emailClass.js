@@ -41,4 +41,26 @@ email.send = function(email, name, keyword) {
     })
 };
 
+email.multisend = function(recipientList, matchedName, emailKeyword, title, description, location) {
+    
+    var options = {
+        transmissionBody: {
+            options: {
+             open_tracking: true,
+             click_tracking: true
+            },
+            
+        recipients: recipientList,
+        content: {
+            from: {
+                name: "Duncan Directory",
+                email: "duncandirectory@covur.co"
+            },
+            subject: "DuncanAlerts: You may be interested in " + title,
+            reply_to: "Duncan Directory <duncandirectory@covur.co>",
+            text: "Hi " + matchedName + " based on your search for " + emailKeyword " experts at Duncan Directory think you might like" + title ". Learn More: " + description "Location: " + location 
+        }
+    
+}; 
+
 module.exports = email;
