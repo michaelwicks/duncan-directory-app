@@ -106,11 +106,6 @@ DuncanApp.controller('parseResultsController', ['$scope', 'Parse', 'duncanServic
 DuncanApp.controller('eventsController', ['$scope', 'Parse', '$filter', function($scope, Parse, $filter) {
 
   // Function takes user input name and email and saves it to PARSE
-  // $scope.submitForm = function(isValid) {
-  //     if (isValid) {
-  //         alert("it works");
-  //     }
-  // }
   $scope.eventInput = function eventInput() {
     var eventData = new Parse.Object('Event');
     Parse.defineAttributes(eventData, ['title', 'location', 'eventStartTime', 'eventEndTime', 'keyword', 'description']);
