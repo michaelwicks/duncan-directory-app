@@ -11,6 +11,7 @@ router.use(function(req, res, next) {
     next();
 });
 
+//Calls function in emailClass.js and sends data from main.js to sparkpost with a POST request
 router.post('/', jsonParser, function(req, res) {
     email.multisend(req.body.email, req.body.eventTitle,  req.body.eventDescription, req.body.eventLocation);
     res.send();

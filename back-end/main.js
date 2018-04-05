@@ -87,7 +87,7 @@ Parse.Cloud.afterSave("Event", function(request) {
             },
 
             body: {
-                email: recipientList,
+                email: recipientList, 
                 eventTitle: title,
                 eventDescription: description,
                 eventLocation: location,

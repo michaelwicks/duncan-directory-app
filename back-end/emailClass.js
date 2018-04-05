@@ -40,6 +40,8 @@ email.send = function(email, name, keyword) {
   })
 };
 
+// function sends emails about events to users based on their keyword searches
+
 email.multisend = function(recipientList, title, description, location) {
 
   var options = {
@@ -49,7 +51,7 @@ email.multisend = function(recipientList, title, description, location) {
         click_tracking: true
       },
 
-      recipients: recipientList,
+      recipients: recipientList, //array of email addresses created in main.js
       content: {
         from: {
           name: "Duncan Directory",
@@ -63,6 +65,8 @@ email.multisend = function(recipientList, title, description, location) {
     }
   }
 
+  // Verification that function works
+  
   client.transmissions.send(options, function(err, json) {
     if (err) {
       // parse sparkpost error message
