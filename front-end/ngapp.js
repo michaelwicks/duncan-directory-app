@@ -105,15 +105,15 @@ DuncanApp.controller('parseResultsController', ['$scope', 'Parse', 'duncanServic
 
 DuncanApp.controller('eventsController', ['$scope', 'Parse', '$filter', function($scope, Parse, $filter) {
 
-  // Function takes user input name and email and saves it to PARSE
+  // Function takes event input title, location, times, keyword, and description and saves it to PARSE
   $scope.eventInput = function eventInput() {
-    var eventData = new Parse.Object('Event');
+    var eventData = new Parse.Object('Event'); // Targets Event class in Parse
     Parse.defineAttributes(eventData, ['title', 'location', 'eventStartTime', 'eventEndTime', 'keyword', 'description']);
     eventData.title = $scope.title;
     eventData.location = $scope.location;
     eventData.eventStartTime = $scope.eventStartTime;
     eventData.eventEndTime = $scope.eventEndTime;
-    eventData.keyword = $filter('lowercase')($scope.keyword);
+    eventData.keyword = $filter('lowercase')($scope.keyword); // Makes user inputted keyword lowercase before saving to Parse
     eventData.description = $scope.description;
     eventData.save(null, {
 
