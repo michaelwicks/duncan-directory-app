@@ -40,6 +40,8 @@ Parse.Cloud.afterSave("Event", function(request) {
     var query = new Parse.Query(Email) 
 
     var recipientList = []; // defines recipientList as blank array;
+    var matchedEmail = '';
+    var matchedName = '';
 
     // Loop through each Email object from parse and identify keyword matches
     query.each(function (emailObject, error) {
@@ -50,8 +52,8 @@ Parse.Cloud.afterSave("Event", function(request) {
         if (emailKeyword === eventKeyword) {
 
             // Get email address
-            var matchedEmail = emailObject.get("email");
-            var matchedName = emailObject.get("name");
+            matchedEmail = emailObject.get("email");
+            matchedName = emailObject.get("name");
 
             // create recipient list array    
             var recipient =
@@ -85,9 +87,7 @@ Parse.Cloud.afterSave("Event", function(request) {
             },
 
             body: {
-                email: recipientList,
-                userName: matchedName,
-                keyword: emailKeyword,
+                email: recipientList, 
                 eventTitle: title,
                 eventDescription: description,
                 eventLocation: location,
