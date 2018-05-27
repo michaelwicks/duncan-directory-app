@@ -6,6 +6,7 @@
   "dependencies": {
     "angular-moment": "^1.2.0",
     "angular-parse": "^0.2.2",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "moment": "^2.21.0"
   },
   "devDependencies": {},
